@@ -10,14 +10,9 @@ import java.sql.SQLException;
 public class BancoDados {
 
     // Configuração do banco na nuvem
-    private static final String BANCO = "railway";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA = "KZjJjpDsOMfiSFuhMeFoXvkktFbokwuh";
-    private static final String HOST = "junction.proxy.rlwy.net";
-    private static final String PORT = "35971";
-    private static final String URL = "jdbc:postgresql://" + HOST + ":" + PORT + "/" + BANCO + "?ssl=true&sslmode=require";
-
-// Use a URL de conexão interna aqui.
+    private static final String URL = "jdbc:mysql://localhost:3306/bytebuster";
+    private static final String USUARIO = "root";
+    private static final String SENHA = "sua_senha";
 
     // Singleton
     private static BancoDados instancia = null;

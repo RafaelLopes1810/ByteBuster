@@ -20,7 +20,7 @@ public class MainView extends JFrame {
 
         setTitle("Sistema de Estacionamentos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);  // Faz a tela ocupar toda a área disponível
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
 
         inicializarComponentes();
@@ -33,20 +33,20 @@ public class MainView extends JFrame {
 
         // Painel para o nome do grupo no topo
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(Color.LIGHT_GRAY);  // Fundo cinza claro
+        topPanel.setBackground(Color.LIGHT_GRAY);  
         JLabel groupLabel = new JLabel("ByteBusters");
-        groupLabel.setFont(new Font("Arial", Font.BOLD, 36));  // Fonte grande e negrito
+        groupLabel.setFont(new Font("Arial", Font.BOLD, 36));  
         groupLabel.setForeground(Color.BLACK);
         topPanel.add(groupLabel);
         add(topPanel, BorderLayout.NORTH);  // Adiciona o painel no topo
 
         // Painel principal para os botões, com GridBagLayout para centralizar
         JPanel panel = new JPanel(new GridBagLayout());
-        panel.setBackground(Color.LIGHT_GRAY);  // Fundo cinza claro
-        add(panel, BorderLayout.CENTER);  // Adiciona o painel no centro
+        panel.setBackground(Color.LIGHT_GRAY); 
+        add(panel, BorderLayout.CENTER); 
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);  // Espaçamento entre os botões
+        gbc.insets = new Insets(10, 10, 10, 10); 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
 
@@ -65,23 +65,28 @@ public class MainView extends JFrame {
     // Método para criar botões com estilo consistente
     private JButton criarBotao(String texto) {
         JButton botao = new JButton(texto);
-        botao.setPreferredSize(new Dimension(300, 50));  // Tamanho fixo para todos os botões
+        botao.setPreferredSize(new Dimension(300, 50));  
         botao.setFont(new Font("Arial", Font.PLAIN, 16));
-        botao.setBackground(Color.WHITE);  // Fundo branco
-        botao.setBorder(BorderFactory.createLineBorder(Color.BLACK));  // Borda preta
+        botao.setBackground(Color.WHITE);  
+        botao.setBorder(BorderFactory.createLineBorder(Color.BLACK));  
         return botao;
     }
 
     private void adicionarEventos() {
         mostrarEstacionamentosButton.addActionListener(e -> {
-            try {
-                ListarEstacionamentosView tabelaView = new ListarEstacionamentosView(controller);
-                tabelaView.setVisible(true);
-            } catch (EstacionamentoDAOException ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Erro ao listar estacionamentos.", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+    System.out.println("Botão Mostrar Estacionamentos clicado"); // Depuração
+    try {
+        ListarEstacionamentosView tabelaView = new ListarEstacionamentosView(controller);
+        tabelaView.setVisible(true);
+        System.out.println("Janela ListarEstacionamentosView exibida"); // Depuração
+    } catch (EstacionamentoDAOException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Erro ao listar estacionamentos: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Erro inesperado: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+});
 
         buscarClienteVeiculoButton.addActionListener(e -> {
             try {
