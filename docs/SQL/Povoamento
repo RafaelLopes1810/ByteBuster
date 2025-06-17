@@ -1,0 +1,77 @@
+-- Inserção de dados na tabela Estacionamento
+INSERT INTO estacionamento (nome, endereco, telefone) VALUES
+('Estacionamento A', 'Rua A, Cidade A, Numero 1', '(11) 1111-1111'),
+('Estacionamento B', 'Rua B, Cidade B, Numero 2', '(22) 2222-2222'),
+('Estacionamento C', 'Rua C, Cidade C, Numero 3', '(33) 3333-3333'),
+('Estacionamento D', 'Rua D, Cidade D, Numero 4', '(44) 4444-4444'),
+('Estacionamento E', 'Rua E, Cidade E, Numero 5', '(55) 5555-5555'),
+
+-- Inserção de dados na tabela Vaga
+INSERT INTO vaga (id_estacionamento, id_vaga, ocupada, tipo) VALUES
+(1, 'A01', FALSE, 'Padrão'),
+(1, 'A02', FALSE, 'VIP'),
+(1, 'A03', FALSE, 'PCD'),
+(1, 'A04', FALSE, 'Padrão'),
+(1, 'A05', FALSE, 'VIP'),
+
+(2, 'A01', FALSE, 'Padrão'),
+(2, 'A02', FALSE, 'VIP'),
+(2, 'A03', FALSE, 'PCD'),
+(2, 'A04', FALSE, 'Padrão'),
+(2, 'A05', FALSE, 'VIP'),
+
+(3, 'A01', FALSE, 'PCD'),
+(3, 'A02', FALSE, 'Padrão'),
+(3, 'A03', FALSE, 'VIP'),
+(3, 'A04', FALSE, 'Padrão'),
+(3, 'A05', FALSE, 'PCD'),
+
+(4, 'A01', FALSE, 'VIP'),
+(4, 'A02', FALSE, 'Padrão'),
+(4, 'A03', FALSE, 'PCD'),
+(4, 'A04', FALSE, 'Padrão'),
+(4, 'A05', FALSE, 'VIP'),
+
+(5, 'A01', FALSE, 'PCD'),
+(5, 'A02', FALSE, 'Padrão'),
+(5, 'A03', FALSE, 'VIP'),
+(5, 'A04', FALSE, 'Padrão'),
+(5, 'A05', FALSE, 'PCD');
+
+-- Inserção de dados na tabela Cliente
+INSERT INTO cliente (nome) VALUES
+('Pessoa A'),
+('Pessoa B'),
+('Pessoa C'),
+('Pessoa D'),
+('Pessoa E');
+
+-- Inserção de dados na tabela Veículo
+INSERT INTO veiculo (placa, id_cliente) VALUES
+('AAA-1111', 1),
+('BBB-2222', 2),
+('CCC-3333', 3),
+('DDD-4444', 4),
+('EEE-5555', 5);
+
+-- Inserção de dados na tabela Ticket
+INSERT INTO ticket (id_estacionamento, id_vaga, id_cliente, entrada, saida, custo, placa) VALUES
+(1, 'A01', 1, '2024-01-01 08:00:00', '2024-01-01 10:00:00', 20.00, 'AAA-1111'),
+(1, 'A04', 2, '2024-01-02 09:00:00', '2024-01-02 12:00:00', 30.00, 'BBB-2222'),
+(2, 'A01', 3, '2024-01-03 07:30:00', '2024-01-03 09:30:00', 25.00, 'CCC-3333'),
+(2, 'A05', 4, '2024-01-04 10:00:00', '2024-01-04 13:00:00', 35.00, 'DDD-4444'),
+(3, 'A03', 5, '2024-01-05 14:00:00', '2024-01-05 16:30:00', 40.00, 'EEE-5555'),
+(3, 'A04', 1, '2024-01-06 09:00:00', '2024-01-06 11:00:00', 22.00, 'AAA-1111'),
+(4, 'A02', 2, '2024-01-07 10:00:00', '2024-01-07 12:30:00', 28.50, 'BBB-2222'),
+(4, 'A04', 3, '2024-01-08 11:00:00', '2024-01-08 14:00:00', 33.00, 'CCC-3333'),
+(5, 'A02', 4, '2024-01-09 12:00:00', '2024-01-09 14:30:00', 36.50, 'DDD-4444'),
+(5, 'A03', 5, '2024-01-10 13:00:00', '2024-01-10 15:30:00', 38.00, 'EEE-5555'),
+(1, 'A02', 2, '2024-01-11 08:15:00', '2024-01-11 10:45:00', 25.50, 'BBB-2222'),
+(1, 'A05', 3, '2024-01-12 09:30:00', '2024-01-12 12:00:00', 30.00, 'CCC-3333'),
+(2, 'A03', 4, '2024-01-13 10:00:00', '2024-01-13 13:00:00', 35.00, 'DDD-4444'),
+(2, 'A04', 5, '2024-01-14 11:00:00', '2024-01-14 14:30:00', 40.50, 'EEE-5555'),
+(3, 'A01', 1, '2024-01-15 07:00:00', '2024-01-15 09:30:00', 22.00, 'AAA-1111'),
+(3, 'A02', 2, '2024-01-16 08:00:00', '2024-01-16 10:15:00', 28.75, 'BBB-2222'),
+(3, 'A05', 3, '2024-01-17 09:45:00', '2024-01-17 12:15:00', 32.00, 'CCC-3333'),
+(4, 'A03', 4, '2024-01-18 10:30:00', '2024-01-18 13:30:00', 37.00, 'DDD-4444'),
+(4, 'A05', 5, '2024-01-19 11:15:00', '2024-01-19 14:15:00', 41.25, 'EEE-5555'),

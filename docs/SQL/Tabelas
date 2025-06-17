@@ -1,0 +1,45 @@
+-- Tabela Estacionamento
+CREATE TABLE estacionamento (
+    id_estacionamento SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20) NOT NULL
+);
+
+-- Tabela Vaga
+CREATE TABLE vaga (
+    id_estacionamento INT NOT NULL,
+    id_vaga CHAR(5) NOT NULL, -- Define id_vaga como CHAR com tamanho fixo
+    ocupada BOOLEAN NOT NULL DEFAULT FALSE,
+    tipo VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id_estacionamento, id_vaga),
+    FOREIGN KEY (id_estacionamento) REFERENCES estacionamento(id_estacionamento)
+    );
+
+-- Tabela Cliente
+CREATE TABLE cliente (
+    id_cliente SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL
+);
+
+-- Tabela Veiculo
+CREATE TABLE veiculo (
+    id_veiculo SERIAL PRIMARY KEY,
+    placa VARCHAR(20) UNIQUE NOT NULL,
+    id_cliente INT NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+);
+
+-- Tabela Ticket
+CREATE TABLE ticket (
+    id_ticket SERIAL PRIMARY KEY,
+    id_estacionamento INT NOT NULL,
+    id_vaga CHAR(5) NOT NULL,
+    id_cliente INT NOT NULL,
+    entrada TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    saida TIMESTAMP WITHOUT TIME ZONE,
+    custo DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_estacionamento) REFERENCES estacionamento(id_estacionamento),
+    FOREIGN KEY (id_estacionamento, id_vaga) REFERENCES vaga(id_estacionamento, id_vaga),
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+);
