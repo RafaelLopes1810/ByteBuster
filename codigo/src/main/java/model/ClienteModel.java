@@ -56,6 +56,11 @@ public class ClienteModel {
         this.totalGasto = totalGasto;
     }
 
-    public void adicionarVeiculoAoCliente(VeiculoModel veiculo1) {
+    public VeiculoModel getVeiculo(int index){
+        return veiculos.get(index);
+    }
+
+    public void adicionarVeiculoAoCliente(VeiculoModel veiculo) {
+        this.veiculos.add(veiculo);
     }
 }

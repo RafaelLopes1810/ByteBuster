@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,16 +16,6 @@ class ClienteModelTest {
     @BeforeEach
     void setUp() {
         cliente = new ClienteModel("João Silva", "12345");
-    }
-
-    @Test
-    void testAdicionarVeiculo() {
-        VeiculoModel veiculo = new VeiculoModel("ABC-1234");
-        cliente.adicionarVeiculo(veiculo);
-
-        List<VeiculoModel> veiculos = cliente.getVeiculos();
-        assertEquals(1, veiculos.size());
-        assertEquals(veiculo, veiculos.get(0));
     }
 
     @Test
@@ -58,16 +47,19 @@ class ClienteModelTest {
         VeiculoModel veiculo = new VeiculoModel("XYZ-9876", cliente);
         cliente.adicionarVeiculoAoCliente(veiculo);
 
-        // Como o método está vazio, podemos verificar que a lista não foi alterada
-        assertTrue(cliente.getVeiculos().isEmpty());
+        // Verifica se a lista de veiculos do cliente não está vazia
+        assertTrue(!cliente.getVeiculos().isEmpty());
+
+        // Verifica retorno da lista de veiculos é igual ao adicionado
+        assertEquals(veiculo, cliente.getVeiculo(0));
     }
 
     @Test
-    void testVeiculoModelIntegration() {
+    void testContemVeiculoEmCliente() {
         VeiculoModel veiculo = new VeiculoModel("XYZ-9876", cliente);
-        cliente.adicionarVeiculo(veiculo);
+        cliente.adicionarVeiculoAoCliente(veiculo);
 
-        assertEquals("XYZ-9876", cliente.getVeiculos().get(0).getPlaca());
+        assertEquals("XYZ-9876", cliente.getVeiculo(0).getPlaca());
         assertEquals(cliente, veiculo.getCliente());
     }
 }
