@@ -14,7 +14,6 @@ public abstract class VagaModel {
         this.ocupada = false;
     }
 
-    // Getters e Setters
     public String getId() {
         return id;
     }
@@ -39,7 +38,6 @@ public abstract class VagaModel {
         return veiculo;
     }
 
-    // Métodos para ocupar e liberar vaga
     public void ocuparVaga(VeiculoModel veiculo) {
         this.veiculo = veiculo;
         this.ocupada = true;
@@ -55,7 +53,6 @@ public abstract class VagaModel {
 
     public abstract String getTipo();
 
-    // Métodos estáticos
     public static double getPrecoPorFacao() {
         return precoPorFacao;
     }

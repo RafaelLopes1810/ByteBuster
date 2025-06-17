@@ -2,7 +2,7 @@ package model;
 
 public class VeiculoModel {
     private String placa;
-    private ClienteModel cliente; // Correção: Certifique-se de que o ClienteModel está importado corretamente
+    private ClienteModel cliente;
 
     public VeiculoModel(String placa) {
         this.placa = placa;
@@ -35,5 +35,6 @@ public class VeiculoModel {
     }
 
     public void setProprietarios(ClienteModel cliente) {
+        this.cliente = cliente;
     }
 }

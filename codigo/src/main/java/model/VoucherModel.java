@@ -14,8 +14,7 @@ public class VoucherModel {
     private String placa;
 
 
-    public VoucherModel(int idTicket, int idEstacionamento, String idVaga, int idCliente,
-                        LocalDateTime entrada, LocalDateTime saida, BigDecimal custo, String placa) {
+    public VoucherModel(int idTicket, int idEstacionamento, String idVaga, int idCliente, LocalDateTime entrada, LocalDateTime saida, BigDecimal custo, String placa) {
         this.idTicket = idTicket;
         this.idEstacionamento = idEstacionamento;
         this.idVaga = idVaga;

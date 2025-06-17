@@ -15,11 +15,11 @@ public class VoucherModelTest {
         // Dados de entrada com valores nulos em campos opcionais
         int idTicket = 2;
         int idEstacionamento = 101;
-        String idVaga = null; // Campo nulo
+        String idVaga = null;
         int idCliente = 501;
         LocalDateTime entrada = LocalDateTime.of(2024, 12, 5, 9, 30);
-        LocalDateTime saida = null; // Campo nulo
-        BigDecimal custo = null; // Campo nulo
+        LocalDateTime saida = null;
+        BigDecimal custo = null;
         String placa = "XYZ-5678";
 
         // Criação do objeto TicketModel
